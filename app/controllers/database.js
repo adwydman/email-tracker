@@ -3,8 +3,9 @@ const { MongoClient } = require('mongodb');
 let db;
 const connect = dbUrl => {
   MongoClient.connect(dbUrl, (err, database) => {
-    db = database
-    db.collection('trackers').createIndex( { emailId: 1 } ); // create indexes for faster lookup in collections
+    db = database;
+    // create indexes for faster lookup in collections
+    db.collection('trackers').createIndex( { emailId: 1 } );
     db.collection('recipients').createIndex( { emailId: 1 } );
   });
 }
@@ -36,5 +37,12 @@ const remove = (collectionName, query) => {
     })
   });
 }
+
+const close = () => {
+  db.close();
+}
+
+process.on('SIGINT', close);
+process.on('SIGTERM', close);
 
 module.exports = { connect, findEntry, insert, remove };

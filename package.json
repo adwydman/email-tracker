@@ -4,14 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test"
+    "test": "mocha test",
+    "start": "forever start -l forever.log -o out.log -e err.log index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.15.4",
-    "mongo-mock": "^2.4.1",
+    "forever": "^0.15.3",
     "mongodb": "^2.2.31",
     "shortid": "^2.2.8"
   },
