@@ -4,8 +4,8 @@ let db;
 const connect = dbUrl => {
   MongoClient.connect(dbUrl, (err, database) => {
     db = database
-    // db.collection('trackers').createIndex( { emailId: 1 } ); // create indexes for faster lookup in collections
-    // db.collection('recipients').createIndex( { emailId: 1 } );
+    db.collection('trackers').createIndex( { emailId: 1 } ); // create indexes for faster lookup in collections
+    db.collection('recipients').createIndex( { emailId: 1 } );
   });
 }
 
