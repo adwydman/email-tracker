@@ -44,9 +44,9 @@ We can recieve information about the Recipient's device, as well as draw conclus
 
 ## Additional thoughts
 
+I decided to use Node's `cluster` module to use all CPUs, so that the server can handle more requests. Additionally, every time a process unexpectedly exits (for example due to some error), it is replaced by a new one. All of this is 
+included in `index.js` file. It could be handled by `pm2` module, but I wanted to do that manually to show that I know how it works. `forever` is used to make sure the app is always running.
 
-I decided to use Node's `cluster` module to use all CPUs, so that the server can handle more requests. Additionally, every time a process unexpectedly exits (for example due to some error), it is replaced by a new one. All of this is included in `index.js` file. It could be handled by `pm2` module, but I wanted to do that manually to show that I know how it works.
-
-Also for the server to handle database opertions more efficiently, I added indexes to the MongoDB collections. Thanks to that the server is able to parse up to 10 times more requests for a second (benchmarked using: `ab -c200 -t10 <URL>`). It can be seen in `database.js` file.
+Also for the server to handle database opertions more efficiently, I added indexes to the MongoDB collections. Thanks to that the server is able to parse up to 10 times more requests for a second (benchmarked using: `ab -c200 -t10 <URL>`). It can be seen in `database.js` file. To increase the performance even more and ensure fault tolerance, repliacation could be used.
 
 For better security, a reverse proxy like NGINX could be set up, as well as TCL/SSL.
