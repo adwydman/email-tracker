@@ -36,11 +36,11 @@ We can recieve information about the Recipient's device, as well as draw conclus
 
 ## File structure:
 
-The server itself: `/app/server.js`.
-Database functions: `/app/controllers/database.js`.
-REST routes: `/app/controllers/routes.js`.
-Functions for `routes.js`: `/app/lib/routesHelpers.js`.
-Test files: `/test`.
+ * The server itself: `/app/server.js`
+ * Database functions: `/app/controllers/database.js`
+ * REST routes: `/app/controllers/routes.js`
+ * Functions for `routes.js`: `/app/lib/routesHelpers.js`
+ * Test files: `/test`
 
 ## Additional thoughts
 
